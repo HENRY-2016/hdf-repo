@@ -1,0 +1,148 @@
+
+<?php session_start ();?>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>| WALL_HANGINGS LOGOS |</title>
+	<script src="static/js/jquery.min.js" ></script>
+	<script src="static/js/main.js"></script>
+    <script src="static/js/order_process.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/css/w3.css">
+</head>
+<script>
+function Onoline_Fatch_User_Online_Data ()
+{
+    document.getElementById('offline-div-lable').style.display='none';
+	Add_Gallery_Iframe ("rendertemplates_endpoint/WALL_HANGINGS__LOGOS");
+}
+
+function Check_Network_Status ()
+{
+	// Onoline_Fatch_User_Online_Data ()
+    if (!navigator.onLine){Show_Offline_Label ('offline-div-lable');}
+	if (navigator.onLine){Add_Gallery_Iframe ("rendertemplates_endpoint/WALL_HANGINGS__LOGOS");}
+}
+
+</script>
+<body  class="main_body" onload="Check_Network_Status ()" ononline="Onoline_Fatch_User_Online_Data ()">
+<div id="main-header">
+	<div  id= "Navigetion" class="header">
+		<!-- ======= CLOSE ====== -->
+	<span href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
+		<div id="Drop-Down-Id">
+			<center>
+				<span >
+                    <img src="static/imgs/navi_links.webp" class="navi-links-webp-img" ><br>
+                </span><br>
+                <?php if(isset($_SESSION['user_name'])) : 
+                    $name = $_SESSION['user_name'];
+                    $home_label =  '<label onclick="Load_Index_view ()" class="navigetion-content-labels">Home</label>';
+                    echo $home_label;
+                else:
+                    $nouser = '<label class="navigetion-content-labels">Well come</label>';
+                    echo $nouser;
+                endif 
+                ?>
+                <label onclick="Load_Cups_View ()" class="navigetion-content-labels">Cups</label>
+                <label onclick="Load_Doors_View ()" class="navigetion-content-labels">Doors</label>
+                <a onclick="OpenDropDown ('Boxes-Id')" ><label  class="navigetion-content-labels">Boxes</label></a>
+                <div id="Boxes-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Boxes_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Boxes_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Boxes_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <a onclick="OpenDropDown ('Tables-Id')" ><label  class="navigetion-content-labels">Tables</label></a>
+                <div id="Tables-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Tables_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Tables_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Tables_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <!-- <label onclick="Load_Chairs_View ()" class="navigetion-content-labels">Chairs</label> -->
+                <a onclick="OpenDropDown ('Chairs-Id')" ><label  class="navigetion-content-labels">Chairs</label></a>
+                <div id="Chairs-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Chairs_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Chairs_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Chairs_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <label onclick="Load_Statues_View ()" class="navigetion-content-labels">Statues</label>
+                <!-- <label onclick="Load_Wall_Hangings_View ()" class="navigetion-content-labels">Wall hangings</label> -->
+                <a onclick="OpenDropDown ('Wall-Hangings-Id')" ><label  class="navigetion-content-labels">Wall hangings</label></a>
+                <div id="Wall-Hangings-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Wall_Hanging_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Wall_Hanging_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Wall_Hanging_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <label onclick="Load_Lamp_Holders_View ()" class="navigetion-content-labels">Lamp holders</label>
+                <label onclick="Load_Ash_Trey_View ()" class="navigetion-content-labels">Ash Trey View</label>
+                <label onclick="Load_Walking_Sticks_View ()" class="navigetion-content-labels">Walking sticks</label>
+
+                <br>
+                <button onclick="Load_Developer_View ()" class="developer-btn">Developer</button>
+            </center>
+		</div>
+		<br>
+</div>
+<div id="NaviDiv">
+	<label class="open-side-navi-label" onclick="openMenus()">
+		<img src="static/imgs/icone.webp" class="pay-webp-img" >
+	</label>
+	 <div class="sticky-header" id="myHeader"><label class="make-order-label" onclick="document.getElementById('id01').style.display='block'">Add to Chart</label></div><br>
+
+</div>
+<script>
+function openMenus(){document.getElementById("Navigetion").style.width = "240px"}
+function closeNavi (){document.getElementById("Navigetion").style.width = "0"}
+function OpenDropDown (DropDownId)
+{
+document.getElementById(DropDownId).classList.toggle("w3-show");
+document.getElementById(DropDownId).previousElementSibling.classList.toggle("w3-show");
+}
+</script>
+
+</div> <!-- main-header-->
+
+<div id="main-body"><br>
+	<center>
+        <div id="offline-div-lable">
+			<label id="offline-lable" class="offline-lable" > Your Are Offline <br> </label>
+		</div>
+       
+		<div id="menu-pics-div"></div>
+	</center>
+</div>
+<div id="id01" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+            <label class="input-discription-labels">Name</label><br>
+            <input id="item-name" type="text" class=" order-inputs"><br>
+
+            <label class="empty-message-label" >Quatity</label><br>
+            <input id="item-qty" type="text"  class=" order-inputs"><br>
+
+            <label class="make-order-label-btn" onclick="Store_Details ('wall hangings logos')">Add details</label><br><br>
+
+            <label class="make-order-label-btn" onclick="Load_Order_Process ()">Complete Order</label>
+			<br>
+			<button  onclick="document.getElementById('id01').style.display='none';" type="button" class="make-order-label-cancel" >Cancel</button><br>
+        </center>
+		</div>		
+	</div>
+</div>
+<script>
+	window.onscroll = function() {myFunction()};
+	
+	var header = document.getElementById("myHeader");
+	var sticky = header.offsetTop;
+	
+	function myFunction() 
+	{
+		if (window.pageYOffset > sticky) {header.classList.add("sticky");} 
+		else {header.classList.remove("sticky");}
+	}
+</script>
+</body>
+</html>
+
