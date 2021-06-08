@@ -23,7 +23,6 @@
     cursor: pointer;
     width:200px;
     padding:3px;
-    font-weight : bold;
     background:lightblue;
     border:2px solid dodgerblue;
 }
@@ -460,7 +459,7 @@
     transition:0.3s;
     /*width: 50%;*/
     display:block;
-   
+
     padding:10px 10px;
     border-bottom-left-radius:10px;
 	border-top-left-radius:10px;
@@ -474,7 +473,28 @@
     transition:0.3s;
     width: 50%;
     display:block;
-   
+    padding:10px 10px;
+    border-radius:10px;
+}
+.make-order-label-btn-add-more
+{
+    color:white;
+    background-color:#D2691E;
+    text-decoration:none;
+    transition:0.3s;
+    width: 40%;
+    display:block;
+    padding:10px 10px;
+    border-radius:10px;
+}
+.make-order-label-btn-attachmenst
+{
+    color:white;
+    background-color:#D2691E;
+    text-decoration:none;
+    transition:0.3s;
+    width: 40%;
+    display:block;
     padding:10px 10px;
     border-radius:10px;
 }
@@ -517,7 +537,26 @@
 }
 .localstorage-space-in-string {padding-left: 20px;}
 .localstorage-type-space-in-string {padding-left: 18px;}
-
+.order-list-div
+{
+    background-color: whitesmoke;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.form-labels
+{
+    color: blue;
+	padding: 7px;
+    font-size: 18px;
+	font-family: 'Times New Roman', Times, serif;
+}
+.form-labels-title
+{
+    color: blue;
+	padding: 7px;
+    font-size: 16px;
+	font-family: 'Times New Roman', Times, serif;
+}
 /*=======================================================================================================*/
                                         /*
                                             +++++++++++++++++++++++++ ++

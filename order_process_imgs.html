@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-	<title>| Order Default |</title>
+	<title>| Order Images |</title>
 	<script src="static/js/jquery.min.js" ></script>
 	<script src="static/js/main.js"></script>
 	<script src="static/js/order_process.js"></script>
@@ -22,7 +22,6 @@ function Check_Network_Status ()
 {
 	Onoline_Fatch_User_Online_Data ()
     // if (!navigator.onLine){Show_Offline_Label ('offline-div-lable');}
-	Retrive_Stored_detaiils ();
 }
 
 </script>
@@ -117,37 +116,79 @@ document.getElementById(DropDownId).previousElementSibling.classList.toggle("w3-
     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	https://makitweb.com/dynamically-add-and-remove-element-with-jquery/
 -->
 
 			<form id="register-form"  autocomplete="off">
 				<center>
                 <label class="form-labels">Customer Name</label><br>
-				<input id="customer-name" type="text" name="message" class="order-inputs"><br>
+				<input id="customer-name" type="text" name="customer name" class=" order-inputs"><br>
 
                 <label class="form-labels">Customer Contact</label><br>
 				<input id="customer-contact" type="text" name="message" class=" order-inputs"><br>
 
-                <label class="form-labels">Location</label><br>
-				<input id="customer-location" type="text" name="message" class=" order-inputs"><br>
+                <label class="form-labels">Email</label><br>
+				<input id="customer-email" type="text" name="message" placeholder="receipt to be sent" class="order-inputs"><br>
+				
+				<label class="form-labels">Location</label><br>
+				<input id="customer-location" type="text" name="message" class="order-inputs"><br>
 
                 <label class="form-labels">Delivery Method</label><br>
-                <select id="customer-method" class=" order-inputs">
+                <select id="customer-method" class="order-inputs">
                     <option>Select</option>
                     <option value="Pick up" >Pick up</option>
                     <option value="Deliver" >Deliver</option>
+                </select><br>
 
-                </select>
+
+
+
+				<div class="container" >
+				<div class='element' id='div_1'>
+                <label class="form-labels" >Select Type</label>
+                <select id="customer-type" class="order-inputs" name="itemtype"  type="text">
+                <option>select</option>
+                <option value="Cups">Cups</option>
+				<option value="Doors">Doors</option>
+                <option value="Statues">Statues</option>
+                <option value="Ash_Treys">Ash Treys</option>
+                <option value="Conrer_pots">Lamp holders</option>
+                <option value="Walking_sticks">Walking sticks</option>
+
+				<option value="Boxes_logos" >Boxes Logos</option>
+				<option value="Boxes_african_vilages" >Boxes African Vilages</option>
+				<option value="Boxes_african_animals" >Boxes African Animals</option>
+
+                <option value="Tables_logos" > Tables Logos</option>
+                <option value="Tables_african_vilages"> Tables African Vilages</option>
+                <option value="Tables_african_animals" > Tables African Animals</option>
+                
+                <option value="Chairs_logos" >Chairs Logos</option>
+                <option value="Chairs_african_vilages">Chairs African Vilages</option>
+                <option value="Chairs_african_animals" >Chairs African Animals</option>
+                
+				<option value="Wall_hangings_logos">Wall hangings Logos</option>
+				<option value="Wall_hangings_african_vilages" >Wall hangings African Vilages</option>
+				<option value="Wall_hangings_african_animals" >Wall hangings African Animals</option>
+            </select> <br>
+            <div>
+                <label class="form-labels">Design file</label>
+                <p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
+                <p><label class="Browse-label" for="back-side-file">Upload Image</label></p>
+                <p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
+				
+				
+            </div><br>
+			 </div>
+			</div><br>
+			<span class='add'>
+					<label class="make-order-label-btn-add-more" onclick="">More </label>
+				</span>
 				</center>
-                <div class="order-list-div">
-                    <label class="form-labels">Your Oder List</label><br>
-                    <label id="stored-details-lable" ></label><br>
-                </div>
 			</form>
             <center>
-                <br>
-                <button  onclick="CancelCustomerOrder ()" type="button" class="make-order-label-cancel" >Cancel Order</button><br>
-                <br>
                 <label class="make-order-label-btn" onclick="document.getElementById('id02').style.display='block';">Proceed to  Payment </label>
+                <br>
             </center> 
 </div>
 <div id="id01" class="w3-modal">
@@ -181,6 +222,46 @@ document.getElementById(DropDownId).previousElementSibling.classList.toggle("w3-
 		</div>		
 	</div>
 </div>
+<script>
+$(document).ready(function(){
+
+ // Add new element
+ $(".add").click(function(){
+
+  // Finding total number of elements added
+  var total_element = $(".element").length;
+ 
+  // last <div> with element class id
+  var lastid = $(".element:last").attr("id");
+  var split_id = lastid.split("_");
+  var nextindex = Number(split_id[1]) + 1;
+
+  var max = 10;
+  // Check total number elements
+  if(total_element < max ){
+   // Adding new div container after last occurance of element class
+   $(".element:last").after("<div class='element' id='div_"+ nextindex +"'></div>");
+ 
+   // Adding element to <div>
+   $("#div_" + nextindex).append("<input type='text' placeholder='Enter your skill' id='txt_"+ nextindex +"'>&nbsp;<span id='remove_" + nextindex + "' class='remove'>X</span>");
+ 
+  }
+ 
+ });
+
+ // Remove element
+ $('.container').on('click','.remove',function(){
+ 
+  var id = this.id;
+  var split_id = id.split("_");
+  var deleteindex = split_id[1];
+
+  // Remove <div> with id
+  $("#div_" + deleteindex).remove();
+
+ }); 
+});
+</script>
 </body>
 </html>
 

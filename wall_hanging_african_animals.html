@@ -9,6 +9,8 @@
     <script src="static/js/order_process.js"></script>
 	<link rel="stylesheet" type="text/css" href="static/css/main.css">
 	<link rel="stylesheet" type="text/css" href="static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+
 </head>
 <script>
 function Onoline_Fatch_User_Online_Data ()
@@ -87,7 +89,9 @@ function Check_Network_Status ()
 	<label class="open-side-navi-label" onclick="openMenus()">
 		<img src="static/imgs/icone.webp" class="pay-webp-img" >
 	</label>
-	<div class="sticky-header" id="myHeader"><label class="make-order-label" onclick="document.getElementById('id01').style.display='block'">Add to Chart</label></div><br>
+	<div class="sticky-header">
+        <label class="make-order-label" onclick="document.getElementById('id02').style.display='block'">Add to Chart</label>
+    </div><br>
 
 </div>
 <script>
@@ -116,10 +120,10 @@ document.getElementById(DropDownId).previousElementSibling.classList.toggle("w3-
 		<div class="w3-container">
 			<br>
             <center>
-            <label class="input-discription-labels">Name</label><br>
+            <label class="form-labels">Name</label><br>
             <input id="item-name" type="text" class=" order-inputs"><br>
 
-            <label class="empty-message-label" >Quatity</label><br>
+            <label class="form-labels" >Quatity</label><br>
             <input id="item-qty" type="text"  class=" order-inputs"><br>
 
             <label class="make-order-label-btn" onclick="Store_Details ('Wall hangings african animals')">Add details</label><br><br>
@@ -131,18 +135,28 @@ document.getElementById(DropDownId).previousElementSibling.classList.toggle("w3-
 		</div>		
 	</div>
 </div>
-<script>
-	window.onscroll = function() {myFunction()};
-	
-	var header = document.getElementById("myHeader");
-	var sticky = header.offsetTop;
-	
-	function myFunction() 
-	{
-		if (window.pageYOffset > sticky) {header.classList.add("sticky");} 
-		else {header.classList.remove("sticky");}
-	}
-</script>
+<div id="id02" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+            <label class="form-labels-title" >Your Order Type</label><br><br>
+
+            <label class="make-order-label-btn-attachmenst" onclick="Load_Order_Process_Imgs ()">With Images</label><br><br>
+            <label class="make-order-label-btn-attachmenst" onclick="OpenOrderSeelectionPopUpWindow ()">With Out Images</label>
+            <script>
+                function OpenOrderSeelectionPopUpWindow ()
+                {
+                    document.getElementById('id02').style.display='none';  
+                    document.getElementById('id01').style.display='block';
+                }
+            </script>
+			<br>
+			<button  onclick="document.getElementById('id02').style.display='none';" type="button" class="make-order-label-cancel" >Cancel</button><br>
+        </center>
+		</div>		
+	</div>
+</div>
 </body>
 </html>
 

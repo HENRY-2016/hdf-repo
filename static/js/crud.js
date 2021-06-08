@@ -115,11 +115,7 @@ function Fetch_All_Staffs (endpoit,avenuetbody,avenuetbodydiv)
         let div_tag = document.getElementById(avenuetbodydiv);
         req.send(div_tag);  
 }
-function DisplayUploadedImage ( event, id )
-{   
-    let image = document.getElementById(id);
-	image.src = URL.createObjectURL(event.target.files[0]);
-}
+
 function Hide_all_Admin_Divs ()
 {
     // MAINS
