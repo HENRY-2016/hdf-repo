@@ -1,5 +1,5 @@
 
-<?php session_start ();?>
+<!-- <?php session_start ();?> -->
 <html>
 <head>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
@@ -140,47 +140,43 @@ document.getElementById(DropDownId).previousElementSibling.classList.toggle("w3-
                     <option value="Deliver" >Deliver</option>
                 </select><br>
 
+				<div class="container" ><!-- Begin::: dynamic imgs input  -->
+				<div class='element' id='div_1'> <!-- Begin::: dynamic div_1  -->
+					<label class="form-labels" >Select Type</label>
+					<select id="customer-type" class="order-inputs" name="itemtype"  type="text">
+					<option>select</option>
+					<option value="Cups">Cups</option>
+					<option value="Doors">Doors</option>
+					<option value="Statues">Statues</option>
+					<option value="Ash_Treys">Ash Treys</option>
+					<option value="Conrer_pots">Lamp holders</option>
+					<option value="Walking_sticks">Walking sticks</option>
 
+					<option value="Boxes_logos" >Boxes Logos</option>
+					<option value="Boxes_african_vilages" >Boxes African Vilages</option>
+					<option value="Boxes_african_animals" >Boxes African Animals</option>
 
-
-				<div class="container" >
-				<div class='element' id='div_1'>
-                <label class="form-labels" >Select Type</label>
-                <select id="customer-type" class="order-inputs" name="itemtype"  type="text">
-                <option>select</option>
-                <option value="Cups">Cups</option>
-				<option value="Doors">Doors</option>
-                <option value="Statues">Statues</option>
-                <option value="Ash_Treys">Ash Treys</option>
-                <option value="Conrer_pots">Lamp holders</option>
-                <option value="Walking_sticks">Walking sticks</option>
-
-				<option value="Boxes_logos" >Boxes Logos</option>
-				<option value="Boxes_african_vilages" >Boxes African Vilages</option>
-				<option value="Boxes_african_animals" >Boxes African Animals</option>
-
-                <option value="Tables_logos" > Tables Logos</option>
-                <option value="Tables_african_vilages"> Tables African Vilages</option>
-                <option value="Tables_african_animals" > Tables African Animals</option>
-                
-                <option value="Chairs_logos" >Chairs Logos</option>
-                <option value="Chairs_african_vilages">Chairs African Vilages</option>
-                <option value="Chairs_african_animals" >Chairs African Animals</option>
-                
-				<option value="Wall_hangings_logos">Wall hangings Logos</option>
-				<option value="Wall_hangings_african_vilages" >Wall hangings African Vilages</option>
-				<option value="Wall_hangings_african_animals" >Wall hangings African Animals</option>
-            </select> <br>
-            <div>
-                <label class="form-labels">Design file</label>
-                <p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
-                <p><label class="Browse-label" for="back-side-file">Upload Image</label></p>
-                <p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
-				
-				
-            </div><br>
-			 </div>
-			</div><br>
+					<option value="Tables_logos" > Tables Logos</option>
+					<option value="Tables_african_vilages"> Tables African Vilages</option>
+					<option value="Tables_african_animals" > Tables African Animals</option>
+					
+					<option value="Chairs_logos" >Chairs Logos</option>
+					<option value="Chairs_african_vilages">Chairs African Vilages</option>
+					<option value="Chairs_african_animals" >Chairs African Animals</option>
+					
+					<option value="Wall_hangings_logos">Wall hangings Logos</option>
+					<option value="Wall_hangings_african_vilages" >Wall hangings African Vilages</option>
+					<option value="Wall_hangings_african_animals" >Wall hangings African Animals</option>
+				</select> <br>
+				<div>
+					<label class="form-labels">Design file</label>
+					<p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
+					<p><label class="Browse-label" for="back-side-file">Upload Image</label></p>
+					<p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
+				</div><br>
+			</div><!-- End::: dynamic div_1  -->
+			</div><!-- End::: dynamic imgs input  -->
+			<br>
 			<span class='add'>
 					<label class="make-order-label-btn-add-more" onclick="">More </label>
 				</span>
@@ -217,49 +213,90 @@ document.getElementById(DropDownId).previousElementSibling.classList.toggle("w3-
             <label class="make-order-label-btn-attachmenst">Mobile Money</label><br><br>
             <label class="make-order-label-btn-attachmenst">Visa Card</label>
 			<br>
+
 			<button  onclick="document.getElementById('id02').style.display='none';" type="button" class="make-order-label-cancel" >Cancel</button><br>
         </center>
 		</div>		
 	</div>
 </div>
 <script>
-$(document).ready(function(){
+let Dynamicselection = '<label class="form-labels" >Select Type</label>'+
+					'<select id="customer-type" class="order-inputs" name="itemtype"  type="text">'+
+					'<option>select</option>'+
 
- // Add new element
- $(".add").click(function(){
+					'<option value="Cups">Cups</option>'+
+					'<option value="Doors">Doors</option>'+
+					'<option value="Statues">Statues</option>'+
+					'<option value="Ash_Treys">Ash Treys</option>'+
+					'<option value="Conrer_pots">Lamp holders</option>'+
+					'<option value="Walking_sticks">Walking sticks</option>'+
 
-  // Finding total number of elements added
-  var total_element = $(".element").length;
- 
-  // last <div> with element class id
-  var lastid = $(".element:last").attr("id");
-  var split_id = lastid.split("_");
-  var nextindex = Number(split_id[1]) + 1;
+					'<option value="Boxes_logos" >Boxes Logos</option>'+
+					'<option value="Boxes_african_vilages" >Boxes African Vilages</option>'+
+					'<option value="Boxes_african_animals" >Boxes African Animals</option>'+
 
-  var max = 10;
-  // Check total number elements
-  if(total_element < max ){
-   // Adding new div container after last occurance of element class
-   $(".element:last").after("<div class='element' id='div_"+ nextindex +"'></div>");
- 
-   // Adding element to <div>
-   $("#div_" + nextindex).append("<input type='text' placeholder='Enter your skill' id='txt_"+ nextindex +"'>&nbsp;<span id='remove_" + nextindex + "' class='remove'>X</span>");
- 
-  }
- 
- });
+					'<option value="Tables_logos" > Tables Logos</option>'+
+					'<option value="Tables_african_vilages"> Tables African Vilages</option>'+
+					'<option value="Tables_african_animals" > Tables African Animals</option>'+
+				
+					'<option value="Chairs_logos" >Chairs Logos</option>'+
+					'<option value="Chairs_african_vilages">Chairs African Vilages</option>'+
+					'<option value="Chairs_african_animals" >Chairs African Animals</option>'+
+				
+					'<option value="Wall_hangings_logos">Wall hangings Logos</option>'+
+					'<option value="Wall_hangings_african_vilages" >Wall hangings African Vilages</option>'+
+					'<option value="Wall_hangings_african_animals" >Wall hangings African Animals</option>'+
+					'</select> <br>'+
+					'<label class="form-labels">Design file</label>'+'<div>';
 
- // Remove element
- $('.container').on('click','.remove',function(){
- 
-  var id = this.id;
-  var split_id = id.split("_");
-  var deleteindex = split_id[1];
 
-  // Remove <div> with id
-  $("#div_" + deleteindex).remove();
+$(document).ready(function()
+{
 
- }); 
+	 // Add new element
+	$(".add").click(function()
+	{
+
+		// Finding total number of elements added
+		let total_element = $(".element").length;
+
+		// last <div> with element class id
+		let lastid = $(".element:last").attr("id");
+		let split_id = lastid.split("_");
+		let nextindex = Number(split_id[1]) + 1;
+		// let event = 'event';
+		let max = 10;
+		// Check total number elements
+		if(total_element < max )
+		{
+			// Adding new div container after last occurance of element class
+			$(".element:last").after("<div class='element' id='div_"+ nextindex +"'></div>");
+
+			// Adding element to <div>
+			// $("#div_" + nextindex).append("<input type='text' placeholder='Enter your skill' id='txt_"+ nextindex +"'>&nbsp;<span id='remove_" + nextindex + "' class='remove'>X</span>");
+			let DynamicImageInputs = //event,'back-side-display-pra-id-"+nextindex+"'
+					// <input type="file" accept="image/*" name="file" id="back-side-file" onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;">
+					// <input type="file" accept="image/*" name="file" id="back-side-file-2" onchange="DisplayUploadedImage(event,"  back-side-display-pra-id-2)'="" style="display: block;">
+					"<p><input type='file'  accept='image/*' name='file' id='back-side-file-"+nextindex+"' onchange='displayuploadedimage('event, back-side-display-pra-id-"+nextindex+"')' style='display: block;'></p>"+
+					"<p><label class='Browse-label' for='back-side-file-"+nextindex+"'>Upload Image</label></p>"+
+					"<p><img id='back-side-display-pra-id-"+nextindex+"' class='img-to-be-displayed' /></p> </div>"+
+					"<label span id='remove_" + nextindex + "' class='remove remove-dynamic-div-label' >Remove</label><br>";
+						
+			$("#div_" + nextindex).append(Dynamicselection+ DynamicImageInputs);
+
+		}
+	});
+
+	// Remove element
+	$('.container').on('click','.remove',function()
+	{
+		let id = this.id;
+		let split_id = id.split("_");
+		let deleteindex = split_id[1];
+
+		// Remove <div> with id
+		$("#div_" + deleteindex).remove();
+	}); 
 });
 </script>
 </body>

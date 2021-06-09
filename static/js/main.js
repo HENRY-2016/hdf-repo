@@ -10,6 +10,12 @@ function DisplayUploadedImage ( event, id )
     let image = document.getElementById(id);
 	image.src = URL.createObjectURL(event.target.files[0]);
 }
+function displayuploadedimage ( event, id )
+{   
+    // let image = document.getElementById(id);
+	// image.src = URL.createObjectURL(event.target.files[0]);
+    alert("func called ")
+}
 function Load_Developer_View () 
 {
     if (!navigator.onLine){Show_Offline_Label_For_Links ()}

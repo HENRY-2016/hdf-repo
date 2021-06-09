@@ -510,6 +510,18 @@
     padding:10px 10px;
     border-radius: 10px;
 }
+.remove-dynamic-div-label
+{
+    color:white;
+    background-color: rgb(241, 111, 111);
+    text-decoration:none;
+    transition:0.3s;
+    width: 15%;
+    display:block;
+    text-align: center;
+    padding:10px 10px;
+    border-radius: 10px;
+}
 .order-inputs
 {
     box-sizing: border-box;
